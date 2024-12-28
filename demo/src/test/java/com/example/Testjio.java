@@ -21,6 +21,7 @@ public class Testjio {
 
      driver.findElement(By.linkText("Groceries")).click();
      driver.findElement(By.linkText("Biscuits, Drinks & Packaged Foods")).click();
+     driver.findElement(By.className("")).click();
      
      Thread.sleep(10000);
         } catch (MalformedURLException e) {
