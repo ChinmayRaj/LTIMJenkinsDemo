@@ -13,12 +13,15 @@ public class TestHotelApp {
         try{
             ChromeOptions op=new ChromeOptions();
             op.addArguments("--disable-notifications");
+            op.addArguments("--start-maximized");
 
      driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
      driver.get("http://www.adactinhotelapp.com");
      driver.findElement(By.id("username")).sendKeys("chinmay");
      driver.findElement(By.id("password")).sendKeys("chinmay123");
      driver.findElement(By.className("login_button")).click();
+     driver.findElement(By.className("login_forgot")).click();
+     driver.navigate().back();
 
      String msg=driver.findElement(By.className("auth_error")).getText();
 
