@@ -20,14 +20,17 @@ public class TestHotelApp {
      driver.findElement(By.id("username")).sendKeys("chinmay");
      driver.findElement(By.id("password")).sendKeys("chinmay123");
      driver.findElement(By.className("login_button")).click();
-     driver.findElement(By.className("login_forgot")).click();
+     driver.findElement(By.linkText("Forgot Password?")).click();
      driver.navigate().back();
+     driver.findElement(By.linkText("login_register")).click();
 
      String msg=driver.findElement(By.className("auth_error")).getText();
 
      System.out.println(msg);
+
+     Thread.sleep(10000);
         }catch(MalformedURLException e){
-e.printStackTrace();
+System.out.println(e.getMessage());;
         }
         finally{
             driver.quit();
