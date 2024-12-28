@@ -3,6 +3,7 @@ package com.example;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -17,6 +18,11 @@ public class Testjio {
 
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
      driver.get("http://www.jiomart.com");
+
+     driver.findElement(By.linkText("Groceries")).click();
+     driver.findElement(By.linkText("Biscuits, Drinks & Packaged Foods")).click();
+     
+     Thread.sleep(10000);
         } catch (MalformedURLException e) {
             System.out.println(e.getMessage());
         }
