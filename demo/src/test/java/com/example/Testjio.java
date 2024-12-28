@@ -18,7 +18,7 @@ public class Testjio {
 
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
      driver.get("http://www.jiomart.com");
-
+      
      driver.findElement(By.linkText("Groceries")).click();
      driver.findElement(By.linkText("Biscuits, Drinks & Packaged Foods")).click();
      driver.findElement(By.className("")).click();
