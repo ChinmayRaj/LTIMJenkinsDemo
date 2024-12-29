@@ -17,11 +17,12 @@ public class Testjio {
             op.addArguments("--start-maximized");
 
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
-     driver.get("https://www.youtube.com/watch?v=2DqBIaFhYGg");
+     driver.get("https://www.jiomart.com");
      Thread.sleep(2000);
 
-      driver.findElement(By.xpath("//*[@id=movie_player]/div[1]/video")).click();
+      driver.findElement(By.xpath("//*[@id='nav_link_2']")).click();
     Thread.sleep(5000);
+    driver.findElement(null)
         } catch (MalformedURLException e) {
             System.out.println(e.getMessage());
         }
