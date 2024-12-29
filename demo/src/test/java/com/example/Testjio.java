@@ -22,8 +22,21 @@ public class Testjio {
 
       driver.findElement(By.xpath("//*[@id='nav_link_2']")).click();
     Thread.sleep(5000);
-    driver.findElement(null)
-        } catch (MalformedURLException e) {
+    driver.findElement(By.xpath("//*[@id='nav_link_61']")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//*[@id='nav_level3_273']")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//*[@id='variant_RCNRIQNBOE']/div[2]/div[1]/div/div[1]/img")).click();
+    Thread.sleep(3000);
+    driver.findElement(By.xpath("/html/body/main/section/section[2]/div[1]/div[2]/div[1]/div/div[3]/div/button")).click();
+    Thread.sleep(3000);
+    driver.findElement(By.xpath("/html/body/header/section[1]/div/section[2]/div[2]/div/div[1]")).click();
+    Thread.sleep(4000);
+    driver.findElement(By.xpath("//*[@id='login-container']/jds-container[5]/section/div/jds-button/button/div")).click();
+    Thread.sleep(6000);
+    driver.findElement(By.xpath("//*[@id='phoneNumber']")).sendKeys("7455095324");
+    Thread.sleep(6000);
+} catch (MalformedURLException e) {
             System.out.println(e.getMessage());
         }
         finally{
