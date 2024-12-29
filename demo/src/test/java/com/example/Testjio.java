@@ -17,16 +17,11 @@ public class Testjio {
             op.addArguments("--start-maximized");
 
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
-     driver.get("http://www.jiomart.com");
-      
-     driver.findElement(By.linkText("Groceries")).click();
-     Thread.sleep(5000);
-     driver.findElement(By.linkText("Biscuits, Drinks & Packaged Foods")).click();
-     Thread.sleep(5000);
-     driver.findElement(By.className("plp_product_list")).click();
-     Thread.sleep(5000);
-     driver.findElement(By.className("addtocartbtn"))
-     Thread.sleep(10000);
+     driver.get("https://www.youtube.com/watch?v=2DqBIaFhYGg");
+     Thread.sleep(2000);
+
+      driver.findElement(By.xpath("//*[@id=movie_player]/div[1]/video")).click();
+    Thread.sleep(5000);
         } catch (MalformedURLException e) {
             System.out.println(e.getMessage());
         }
