@@ -1,8 +1,10 @@
 package com.example;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -27,15 +29,18 @@ public class TestDragAndDrop {
             act.dragAndDrop(from, to).build().perform();
             Thread.sleep(5000);
 
-            //screenshot
-            File screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-          try {
-            FileUtils.copyFile(screenshot,new File("C:\\downloads\xyz.png"));
-          } catch (Exception e) {
+        //     //screenshot
+        //     File screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        //   try {
+        //     FileUtils.copyFile(screenshot,new File("C:\\downloads\xyz.png"));
+        //   } catch (Exception e) {
            
-          }
-        } catch (Exception e) {
-            
+        //   }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        finally{
+            driver.quit();
         }
     }
 }
