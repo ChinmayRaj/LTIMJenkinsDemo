@@ -34,7 +34,7 @@ public class TestShopperStop {
      
      driver.findElement(By.xpath("//div/button[@role='combobox']/img")).click();
      Thread.sleep(5000);
-     driver.findElement(By.xpath("//span/div/span[text()='Discount']")).click();
+     driver.findElement(By.xpath("//button/span/div/span[text()='Discount']")).click();
      Thread.sleep(5000);
 
      Actions act=new Actions(driver);
