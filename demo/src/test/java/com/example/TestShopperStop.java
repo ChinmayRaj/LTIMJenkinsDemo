@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class TestShopperStop {
      public static WebDriver driver;
     @Test
-     public static void TestShop(String[] args)throws InterruptedException {
+     public static void main(String[] args)throws InterruptedException {
         try {
             ChromeOptions op=new ChromeOptions();
             op.addArguments("--disable-notifications");
@@ -26,7 +26,7 @@ public class TestShopperStop {
      Thread.sleep(2000);
 
      driver.findElement(By.xpath("//div/input")).sendKeys("Kurta");
-     Thread.sleep(3000);
+     Thread.sleep(5000);
      driver.findElement(By.xpath("//div[@class='bg-transparent flex flex-col']/div[2]/p")).click();
      Thread.sleep(6000);
      driver.findElement(By.xpath("//div/button[@role='combobox']/img")).click();
