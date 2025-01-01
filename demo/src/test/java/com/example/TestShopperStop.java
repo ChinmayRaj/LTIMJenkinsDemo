@@ -35,7 +35,9 @@ public class TestShopperStop {
      Thread.sleep(5000);
 
      Actions act=new Actions(driver);
-     act.moveToElement("null")
+     act.moveToElement(driver.findElement(By.xpath("//div[@class='bg-transparent relative rounded md:rounded-lg']/img"))).build().perform();
+     Thread.sleep(2000);
+     
 
         } catch (Exception e) {
             // TODO: handle exception
