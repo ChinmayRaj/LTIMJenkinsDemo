@@ -14,7 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TestShopperStop {
      public static WebDriver driver;
-    @Test
+   
      public static void main(String[] args)throws InterruptedException {
         try {
             ChromeOptions op=new ChromeOptions();
@@ -22,7 +22,7 @@ public class TestShopperStop {
             op.addArguments("--start-maximized");
 
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
-     driver.get("https://www.shoppersstop.com/");
+     driver.get("https://www.shoppersstop.com");
      Thread.sleep(2000);
 
      driver.findElement(By.xpath("//div/input")).sendKeys("Kurta");
