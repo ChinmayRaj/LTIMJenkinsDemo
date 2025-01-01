@@ -5,8 +5,11 @@ package com.example;
 import java.net.URL;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.idealized.Javascript;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TestShopperStop {
@@ -24,7 +27,16 @@ public class TestShopperStop {
 
      driver.findElement(By.xpath("//div/input")).sendKeys("Kurta");
      Thread.sleep(3000);
-     
+     driver.findElement(By.xpath("//div[@class='bg-transparent flex flex-col']/div[2]/p")).click();
+     Thread.sleep(6000);
+     driver.findElement(By.xpath("//div/button[@role='combobox']/img")).click();
+     Thread.sleep(2000);
+     driver.findElement(By.xpath("//span/div/span[text()='Discount']")).click();
+     Thread.sleep(5000);
+
+     Actions act=new Actions(driver);
+     act.moveToElement("null")
+
         } catch (Exception e) {
             // TODO: handle exception
         }
