@@ -37,6 +37,7 @@ public class TestShopperStop {
      Thread.sleep(2000);
      WebElement disc=driver.findElement(By.xpath("//button/span/div/span[text()='Discount']"));
       act.moveToElement(disc).build().perform();
+      Thread.sleep(3000);
       disc.click();
      Thread.sleep(5000);
 
