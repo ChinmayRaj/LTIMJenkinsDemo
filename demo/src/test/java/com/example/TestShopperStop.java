@@ -7,6 +7,7 @@ import java.net.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.devtools.idealized.Javascript;
 import org.openqa.selenium.interactions.Actions;
@@ -24,7 +25,7 @@ public class TestShopperStop {
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
      driver.get("https://www.shoppersstop.com");
      Thread.sleep(2000);
-
+     Actions act=new Actions(driver);
      driver.findElement(By.xpath("//div/input")).sendKeys("Kurta");
      Thread.sleep(5000);
      driver.findElement(By.xpath("//div/input")).click();
@@ -34,10 +35,11 @@ public class TestShopperStop {
      
      driver.findElement(By.xpath("//div/button[@role='combobox']/img")).click();
      Thread.sleep(5000);
-     driver.findElement(By.xpath("//button/span/div/span[text()='Discount']")).click();
+     WebElement disc=driver.findElement(By.xpath("//button/span/div/span[text()='Discount']"));
+      act.moveToElement(disc).build().perform();
      Thread.sleep(5000);
 
-     Actions act=new Actions(driver);
+    
      act.moveToElement(driver.findElement(By.xpath("//div[@class='bg-transparent relative rounded md:rounded-lg']/img"))).build().perform();
      Thread.sleep(2000);
 
