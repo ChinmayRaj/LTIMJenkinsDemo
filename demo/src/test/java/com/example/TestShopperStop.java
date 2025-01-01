@@ -14,8 +14,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TestShopperStop {
      public static WebDriver driver;
-
-     public static void main(String[] args)throws InterruptedException {
+    @Test
+     public static void TestShop(String[] args)throws InterruptedException {
         try {
             ChromeOptions op=new ChromeOptions();
             op.addArguments("--disable-notifications");
@@ -37,10 +37,13 @@ public class TestShopperStop {
      Actions act=new Actions(driver);
      act.moveToElement(driver.findElement(By.xpath("//div[@class='bg-transparent relative rounded md:rounded-lg']/img"))).build().perform();
      Thread.sleep(2000);
-     
+
 
         } catch (Exception e) {
-            // TODO: handle exception
+            e.printStackTrace();
+        }
+        finally{
+            driver.quit();
         }
      }
 }
