@@ -40,9 +40,11 @@ public class TestMakeMyTrip {
      WebElement btn2=driver.findElement(By.xpath("//li[@role='option']/div/div/p[text()='Rajiv Gandhi International Airport']"));
        act.moveToElement(btn2).build().perform();
        Thread.sleep(2000);
-       btn1.click();
+       btn2.click();
        Thread.sleep(3000);
      
+       driver.findElement(By.xpath("//div/label[@for='departure']")).click();
+       
 
         } catch (Exception e) {
             e.printStackTrace();
