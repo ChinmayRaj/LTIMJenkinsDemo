@@ -23,8 +23,8 @@ public class TestMakeMyTrip {
     //  driver.findElement(By.xpath("//span[@class='commonModal_close']")).click();
     //  Thread.sleep(3000);
      driver.findElement(By.xpath("//div/label/input[@id='fromCity']")).click();
-     Thread.sleep(4000);
-     driver.findElement(By.xpath("//div/label/input[@id='fromCity']")).sendKeys("Bhubaneswar");
+     Thread.sleep(6000);
+     driver.findElement(By.xpath("//div//input[@placeholder='From']")).sendKeys("Bhubaneswar");
      Thread.sleep(2000);
      Actions act=new Actions(driver);
 
