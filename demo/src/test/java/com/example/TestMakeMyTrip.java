@@ -33,6 +33,16 @@ public class TestMakeMyTrip {
        Thread.sleep(2000);
        btn1.click();
        Thread.sleep(3000);
+       driver.findElement(By.xpath("//div/label/input[@id='toCity']")).click();
+     Thread.sleep(6000);
+     driver.findElement(By.xpath("//div//input[@placeholder='To']")).sendKeys("Hyderabad");
+     Thread.sleep(2000);
+     WebElement btn2=driver.findElement(By.xpath("//li[@role='option']/div/div/p[text()='Rajiv Gnadhi International Airport']"));
+       act.moveToElement(btn2).build().perform();
+       Thread.sleep(2000);
+       btn1.click();
+       Thread.sleep(3000);
+     
 
         } catch (Exception e) {
             e.printStackTrace();
