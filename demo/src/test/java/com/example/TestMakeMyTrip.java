@@ -20,15 +20,15 @@ public class TestMakeMyTrip {
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
      driver.get("https://www.makemytrip.com/");
      Thread.sleep(2000);
-     driver.findElement(By.xpath("//span[@class='commonModal_close']")).click();
-     Thread.sleep(3000);
+    //  driver.findElement(By.xpath("//span[@class='commonModal_close']")).click();
+    //  Thread.sleep(3000);
      driver.findElement(By.xpath("//div/label/input[@id='fromCity']")).click();
-     Thread.sleep(2000);
+     Thread.sleep(4000);
      driver.findElement(By.xpath("//div/label/input[@id='fromCity']")).sendKeys("Bhubaneswar");
      Thread.sleep(2000);
      Actions act=new Actions(driver);
 
-     WebElement btn1=driver.findElement(By.xpath("//div/p[test()='Bhubaneswar, India']"));
+     WebElement btn1=driver.findElement(By.xpath("//div/p[text()='Bhubaneswar, India']"));
        act.moveToElement(btn1).build().perform();
        Thread.sleep(2000);
        btn1.click();
