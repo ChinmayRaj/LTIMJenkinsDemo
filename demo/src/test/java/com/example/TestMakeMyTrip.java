@@ -20,8 +20,7 @@ public class TestMakeMyTrip {
             driver=new RemoteWebDriver(new URL("http://localhost:4444"),op);
      driver.get("https://www.makemytrip.com/");
      Thread.sleep(2000);
-    //  driver.findElement(By.xpath("//span[@class='commonModal_close']")).click();
-    //  Thread.sleep(3000);
+    
      driver.findElement(By.xpath("//div/label/input[@id='fromCity']")).click();
      Thread.sleep(6000);
      driver.findElement(By.xpath("//div//input[@placeholder='From']")).sendKeys("Bhubaneswar");
@@ -43,11 +42,11 @@ public class TestMakeMyTrip {
        btn2.click();
        Thread.sleep(3000);
      
-    //    driver.findElement(By.xpath("//div/label[@for='departure']")).click();
-    //    Thread.sleep(2000);
+       driver.findElement(By.xpath("//div/label[@for='return']")).click();
+       Thread.sleep(2000);
        driver.findElement(By.xpath("//div[@class='DayPicker-Week']/div[@aria-label='Thu Jan 02 2025']")).click();
        Thread.sleep(3000);
-       driver.findElement(By.xpath("//div[@class='DayPicker-Week']/div[@aria-label='Thu Jan 04 2025']")).click();
+       driver.findElement(By.xpath("//div[@class='DayPicker-Week']/div[@aria-label='Sat Jan 04 2025']")).click();
        Thread.sleep(3000);
 
 
