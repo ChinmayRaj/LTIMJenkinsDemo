@@ -43,12 +43,13 @@ public class TestMakeMyTrip {
        btn2.click();
        Thread.sleep(3000);
      
-       driver.findElement(By.xpath("//div/label[@for='departure']")).click();
-       Thread.sleep(2000);
+    //    driver.findElement(By.xpath("//div/label[@for='departure']")).click();
+    //    Thread.sleep(2000);
        driver.findElement(By.xpath("//div[@class='DayPicker-Week']/div[@aria-label='Thu Jan 02 2025']")).click();
        Thread.sleep(3000);
-       driver.findElement(By.xpath("//div[@class='DayPicker-Week']/div[@aria-label='Thu Jan 02 2025']")).click();
+       driver.findElement(By.xpath("//div[@class='DayPicker-Week']/div[@aria-label='Thu Jan 04 2025']")).click();
        Thread.sleep(3000);
+
 
         } catch (Exception e) {
             e.printStackTrace();
