@@ -24,15 +24,15 @@ public class TestScreenshot {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://www.jiomart.com");
+        File scrdir=new File("/home/coder/project/workspace/demo/screenshots/");
+        if(!scrdir.exists()){
+            scrdir.mkdir();
+        }
 
         TakesScreenshot screenshot=(TakesScreenshot)driver;
         File src=screenshot.getScreenshotAs(OutputType.FILE);
-        File dest=new File("/home/coder/project/workspace/demo/screenshots/"+"screenshot.jpg");
-        
-        if(!dest.exists()){
-            dest.mkdir();
-        }
-       FileHandler.copy(src,dest);
+       File dest=new File(scrdir,"screenshot.png");
+        FileHandler.copy(src,dest);
         
         driver.quit();
 
