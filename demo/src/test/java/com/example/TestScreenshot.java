@@ -27,7 +27,7 @@ public class TestScreenshot {
 
         TakesScreenshot screenshot=(TakesScreenshot)driver;
         File src=screenshot.getScreenshotAs(OutputType.FILE);
-        File dest=new File("/home/coder/project/workspace/demo/screenshots");
+        File dest=new File("/home/coder/project/workspace/demo/screenshots"+"screenshot.png");
         
         // if(!dest.exists()){
         //     dest.mkdir();
