@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 10.389 s <<< FAILURE! - in TestSuite
+TestReadExcel(com.example.TestExcel)  Time elapsed: 0.015 s  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/apache/poi/util/POILogFactory
+	at com.example.TestExcel.TestReadExcel(TestExcel.java:40)
+Caused by: java.lang.ClassNotFoundException: org.apache.poi.util.POILogFactory
+	at com.example.TestExcel.TestReadExcel(TestExcel.java:40)
+
