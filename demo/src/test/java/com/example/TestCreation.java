@@ -10,8 +10,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TestCreation {
-    // public static WebDriver driver;
-
+    public static WebDriver driver;
+public TestCreation(WebDriver driver){
+    this.driver=driver;
+}
     public static void OpenURL(WebDriver driver)throws MalformedURLException{
         ChromeOptions op=new ChromeOptions();
         driver=new RemoteWebDriver(new URL("http://localhost:4444"), op);

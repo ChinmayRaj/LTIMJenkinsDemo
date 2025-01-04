@@ -26,8 +26,6 @@ public class TestScreenshot {
        
     //     TestCreation tc=new TestCreation();
     //    TestEnd te=new TestEnd();
-
-
     //    tc.OpenURL(driver);
 
         File scrdir=new File("/home/coder/project/workspace/demo/screenshots/");
