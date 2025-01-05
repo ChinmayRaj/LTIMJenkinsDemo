@@ -3,6 +3,7 @@ import org.openqa.selenium.io.FileHandler;
 import java.io.*;
 import java.time.Duration;
 import java.util.Properties;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -27,12 +28,12 @@ public class TestHybrid {
   public static XSSFRow row;
   public static XSSFCell cell;
   public static WebDriver driver;
-
+public static Properties prop;
     public static By uname=By.id("username");
     public static By passwrd=By.id("password");
     public static By login=By.id("login");
     @BeforeMethod
-    public void setup()throws MalformedURLException{
+    public void setup()throws MalformedURLException,IOException{
      
         ChromeOptions op=new ChromeOptions();
         op.addArguments("--disable-notifications");
@@ -40,8 +41,11 @@ public class TestHybrid {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-
-        driver.get(readProp("Url"));
+        FileInputStream fis=new FileInputStream("/home/coder/project/workspace/adactin/config/config.properties");
+        prop=new Properties();
+        prop.load(fis);
+        String url=prop.getProperty("Url");
+        driver.get(url);
 
     }
     @DataProvider(name="readData")
@@ -60,10 +64,7 @@ public class TestHybrid {
       th.typefield(uname, user);
       th.typefield(passwrd,pass);
       th.clickElement(login);
-
-
-      
-    }
+}
     @AfterTest
     public void tearDown(){
         driver.quit();
