@@ -1,9 +1,11 @@
 package com.example;
-
-import java.io.File;
+import org.openqa.selenium.io.FileHandler;
+import java.io.*;
 import java.time.Duration;
 import java.util.Properties;
 import java.net.URL;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,17 +14,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TestHybrid {
-  
+  public static String url;
+  public static String filePath;
     public static WebDriver driver;
-
+public static By uname;
+public static By uname;
     @BeforeMethod
     public void setup()throws IOException{
-        String filePath=System.getProperty("user.dir");
-
-        File file=new File(filePath+"/config/config.properties");
+        filePath=System.getProperty("user.dir");
+//taking url from config directory
+        FileInputStream file=new FileInputStream(filePath+"/config/config.properties");
         Properties props=new Properties();
         props.load(file);
-        String url=props.getProperty("Url");
+        url=props.getProperty("Url");
 
         ChromeOptions op=new ChromeOptions();
         op.addArguments("--disable-notifications");
@@ -35,8 +39,8 @@ public class TestHybrid {
 
     }
     @Test
-    public void testcase1(){
- 
+    public void testHotel(){
+ driver.findElement(By.xpath("")).sendKeys("");
     }
     @AfterTest
     public void tesrDown(){
