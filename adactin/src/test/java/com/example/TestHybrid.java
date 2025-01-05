@@ -17,8 +17,9 @@ public class TestHybrid {
   public static String url;
   public static String filePath;
     public static WebDriver driver;
-public static By uname;
-public static By uname;
+public static By uname=By.id("username");
+public static By pass=By.id("password");
+public static By login=By.id("login");
     @BeforeMethod
     public void setup()throws IOException{
         filePath=System.getProperty("user.dir");
@@ -39,11 +40,23 @@ public static By uname;
 
     }
     @Test
-    public void testHotel(){
- driver.findElement(By.xpath("")).sendKeys("");
+    public void testHotel()throws InterruptedException{
+      TestHybrid th=new TestHybrid();
+      th.typefield(uname, "Tonymontana");
+      th.typefield(pass,"jarvis123");
+      th.clickElement(login);
+      Thread.sleep(4000);
     }
     @AfterTest
-    public void tesrDown(){
+    public void tearDown(){
         driver.quit();
     }
+
+    public void typefield(By loc,String text){
+        driver.findElement(loc).sendKeys(text);
+    }
+    public void clickElement(By loc){
+        driver.findElement(loc).click();
+    }
+    public static void setExcelFile(String excelpath,String SheetName)
 }
