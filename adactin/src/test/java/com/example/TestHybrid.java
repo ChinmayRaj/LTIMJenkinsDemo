@@ -10,6 +10,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -97,5 +99,17 @@ for(int i=0;i<rows;i++){
     }
 }
 return data;
+    }
+    public static void Capture()throws IOException{
+        File dir=new File("/home/coder/project/workspace/adactin/screenshots/hotel.png");
+        if(!dir.exists()){
+            dir.mkdir();
+        }
+        TakesScreenshot ts=(TakesScreenshot)driver;
+        File src=ts.getScreenshotAs(OutputType.FILE);
+        
+        FileHandler.copy(src,dir);
+
+
     }
 }
