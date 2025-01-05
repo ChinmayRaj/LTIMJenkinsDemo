@@ -16,17 +16,17 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class TestScreenshot {
     public static WebDriver driver;
     public static void main(String[] args)throws MalformedURLException,IOException{
-        // ChromeOptions op=new ChromeOptions();
-        // driver=new RemoteWebDriver(new URL("http://localhost:4444"), op);
-        // op.addArguments("--disable-notifications");
-        // driver.manage().window().maximize();
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        ChromeOptions op=new ChromeOptions();
+        driver=new RemoteWebDriver(new URL("http://localhost:4444"), op);
+        op.addArguments("--disable-notifications");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        // driver.get("https://www.jiomart.com");
+        driver.get("https://www.jiomart.com");
        
-        TestCreation tc=new TestCreation();
-       TestEnd te=new TestEnd();
-       tc.OpenURL(driver);
+    //     TestCreation tc=new TestCreation();
+    //    TestEnd te=new TestEnd();
+    //    tc.OpenURL(driver);
 
         File scrdir=new File("/home/coder/project/workspace/demo/screenshots/");
         if(!scrdir.exists()){
