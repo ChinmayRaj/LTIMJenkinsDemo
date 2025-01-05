@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TestHybrid {
@@ -41,15 +42,22 @@ public static By login=By.id("login");
         driver.get(readProp("Url"));
 
     }
-    @Test
+    @DataProvider(name="readData)
+    public Object[][] readData(){
+        setExcelFile(xlpath, "Sheet1");
+        Object[][] testData=
+    }
+    @Test(dataProvider ="readData" )
     public void testHotel()throws InterruptedException{
         String xlpath=readProp("excelPath");
       TestHybrid th=new TestHybrid();
       setExcelFile(xlpath, "Sheet1");
-      
+      String[][] data=readExcelData();
       th.typefield(uname, "Tonymontana");
       th.typefield(pass,"jarvis123");
       th.clickElement(login);
+
+
       
     }
     @AfterTest
@@ -86,5 +94,6 @@ for(int i=0;i<rows;i++){
        data[i][j]=sheet.getRow(i).getCell(j).
     }
 }
+return data;
     }
 }
