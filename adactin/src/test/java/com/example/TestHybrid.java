@@ -47,11 +47,8 @@ public static Properties prop;
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-        FileInputStream fis=new FileInputStream("/home/coder/project/workspace/adactin/config/config.properties");
-        prop=new Properties();
-        prop.load(fis);
-        String url=prop.getProperty("Url");
-        driver.get(url);
+        
+        driver.get(readProp("Url"));
         String reportPath="./reports/SparkReport.html";
 spark=new ExtentSparkReporter(reportPath);
 extent=new ExtentReports();
