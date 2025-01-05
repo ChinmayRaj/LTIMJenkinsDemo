@@ -6,6 +6,7 @@ import java.util.Properties;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -23,15 +24,15 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-//import com.aventstack.extentreports.reporter.ExtentReporter;
+
 
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 
 public class TestHybrid {
-  public static final Logger logger=Logger.(TestHybrid.class);
+  public static final Logger logger=Logger.getLogger(TestHybrid.class);
   ExtentSparkReporter spark;
-  ExtentReporter report;
+  ExtentReports report;
   ExtentTest test;
   public static XSSFSheet sheet;
   public static XSSFWorkbook wb;
@@ -56,12 +57,11 @@ public static Properties prop;
         prop.load(fis);
         String url=prop.getProperty("Url");
         driver.get(url);
-        spark=new ExtentSparkReporter("SparkReport.html");
-        extent=new ExtentReports();
-        extent.attachReporter(spark);
-          
-
-    }
+        String reportPath="./reports/SparkReport.html";
+spark=new ExtentSparkReporter(reportPath);
+extent=new ExtentReports();
+extent.atta
+     }
     @DataProvider(name="readData")
     public Object[][] readData()throws IOException{
         String excelpath=readProp("excelPath");
