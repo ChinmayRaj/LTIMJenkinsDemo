@@ -26,11 +26,11 @@ public class TestHybrid {
   public static XSSFWorkbook wb;
   public static XSSFRow row;
   public static XSSFCell cell;
-  
-    public static WebDriver driver;
-public static By uname=By.id("username");
-public static By passwrd=By.id("password");
-public static By login=By.id("login");
+  public static WebDriver driver;
+
+    public static By uname=By.id("username");
+    public static By passwrd=By.id("password");
+    public static By login=By.id("login");
     @BeforeMethod
     public void setup()throws IOException{
      

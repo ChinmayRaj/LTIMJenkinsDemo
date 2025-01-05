@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.example.TestHybrid
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.713 s <<< FAILURE! - in com.example.TestHybrid
-testHotel(com.example.TestHybrid)  Time elapsed: 0.444 s  <<< FAILURE!
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.906 s <<< FAILURE! - in com.example.TestHybrid
+testHotel(com.example.TestHybrid)  Time elapsed: 0.589 s  <<< FAILURE!
 java.lang.RuntimeException: java.lang.NoClassDefFoundError: org/apache/poi/util/POILogFactory
 	at com.example.TestHybrid.setExcelFile(TestHybrid.java:80)
 	at com.example.TestHybrid.readData(TestHybrid.java:50)
@@ -10,7 +10,7 @@ Caused by: java.lang.ClassNotFoundException: org.apache.poi.util.POILogFactory
 	at com.example.TestHybrid.setExcelFile(TestHybrid.java:80)
 	at com.example.TestHybrid.readData(TestHybrid.java:50)
 
-tearDown(com.example.TestHybrid)  Time elapsed: 0.498 s  <<< FAILURE!
+tearDown(com.example.TestHybrid)  Time elapsed: 0.598 s  <<< FAILURE!
 java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.quit()" because "com.example.TestHybrid.driver" is null
 	at com.example.TestHybrid.tearDown(TestHybrid.java:69)
 
