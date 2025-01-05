@@ -21,6 +21,8 @@ public class TestHybrid {
   
   public static XSSFSheet sheet;
   public static XSSFWorkbook wb;
+  public static XSSFRow row;
+  public static XSSFCell cell;
   
     public static WebDriver driver;
 public static By uname=By.id("username");
@@ -44,6 +46,7 @@ public static By login=By.id("login");
         String xlpath=readProp("excelPath");
       TestHybrid th=new TestHybrid();
       setExcelFile(xlpath, "Sheet1");
+      
       th.typefield(uname, "Tonymontana");
       th.typefield(pass,"jarvis123");
       th.clickElement(login);
@@ -74,7 +77,14 @@ public static By login=By.id("login");
         return property;
     }
     public static String[][] readExcelData(){
+        String data=[][];
 int rows=sheet.getLastRowNum()-sheet.getFirstRowNum();
-int cells
+int cells=sheet.getRow(0).getLastCellNum();
+for(int i=0;i<rows;i++){
+    for(int j=0;j<cells;j++)
+    {
+       data[i][j]=sheet.getRow(i).getCell(j).
+    }
+}
     }
 }
