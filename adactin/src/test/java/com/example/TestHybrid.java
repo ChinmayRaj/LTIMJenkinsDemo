@@ -22,6 +22,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.UIStore.LocatorUtils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
@@ -65,9 +66,9 @@ extent.attachReporter(spark);
     public void testHotel(String user,String pass)throws Exception{
         
       Seleniumhelper sh=new Seleniumhelper(driver);
-      sh.typefield(uname, user);
-      sh.typefield(passwrd,pass);
-      sh.clickElement(login);
+      sh.typefield(LocatorUtils.uname, user);
+      sh.typefield(LocatorUtils.passwrd,pass);
+      sh.clickElement(LocatorUtils.login);
 }
     @AfterTest
     public void tearDown(){
