@@ -21,8 +21,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentReporter;
+
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import io.opentelemetry.api.logs.Logger;
+
 public class TestHybrid {
-  
+  public static final Logger logger=Logger.getLogger(TestHybrid.class);
+  ExtentSparkReporter spark;
+  ExtentReporter report;
+  ExtentTest test;
   public static XSSFSheet sheet;
   public static XSSFWorkbook wb;
   public static XSSFRow row;
@@ -46,6 +56,7 @@ public static Properties prop;
         prop.load(fis);
         String url=prop.getProperty("Url");
         driver.get(url);
+        spark=new ExtentSparkReporter("");
 
     }
     @DataProvider(name="readData")
@@ -94,6 +105,7 @@ public static Properties prop;
         String[][] data=null;
 int rows=sheet.getLastRowNum()-sheet.getFirstRowNum();
 int cells=sheet.getRow(0).getLastCellNum();
+data=new String[rows][cells];
 for(int i=0;i<rows;i++){
     for(int j=0;j<cells;j++)
     {
@@ -111,7 +123,5 @@ return data;
         File src=ts.getScreenshotAs(OutputType.FILE);
         
         FileHandler.copy(src,dir);
-
-
     }
 }
