@@ -34,15 +34,10 @@ public class TestHybrid {
   ExtentSparkReporter spark;
   ExtentReports report;
   ExtentTest test;
-  public static XSSFSheet sheet;
-  public static XSSFWorkbook wb;
-  public static XSSFRow row;
-  public static XSSFCell cell;
+ 
   public static WebDriver driver;
 public static Properties prop;
-    public static By uname=By.id("username");
-    public static By passwrd=By.id("password");
-    public static By login=By.id("login");
+    
     @BeforeMethod
     public void setup()throws MalformedURLException,IOException{
      
@@ -60,7 +55,7 @@ public static Properties prop;
         String reportPath="./reports/SparkReport.html";
 spark=new ExtentSparkReporter(reportPath);
 extent=new ExtentReports();
-extent.atta
+extent.attachReporter(spark);
      }
     @DataProvider(name="readData")
     public Object[][] readData()throws IOException{
@@ -84,39 +79,8 @@ extent.atta
         driver.quit();
     }
 
-    public void typefield(By loc,String text){
-        driver.findElement(loc).sendKeys(text);
-    }
-    public void clickElement(By loc){
-        driver.findElement(loc).click();
-    }
-    public static void setExcelFile(String excelpath,String SheetName)throws IOException{
-        File file = new File(excelpath);
-       FileInputStream fis=new FileInputStream(file);
-       wb=new XSSFWorkbook(fis);
-       sheet=wb.getSheet(SheetName);
-      }
-    public static String readProp(String propToRead)throws IOException{
-        String  filePath=System.getProperty("user.dir");
-        FileInputStream file=new FileInputStream(filePath+"/config/config.properties");
-        Properties props=new Properties();
-        props.load(file);
-        String property=props.getProperty(propToRead);
-        return property;
-    }
-    public static String[][] readExcelData(){
-        String[][] data=null;
-int rows=sheet.getLastRowNum()-sheet.getFirstRowNum();
-int cells=sheet.getRow(0).getLastCellNum();
-data=new String[rows][cells];
-for(int i=0;i<rows;i++){
-    for(int j=0;j<cells;j++)
-    {
-       data[i][j]=sheet.getRow(i).getCell(j).getStringCellValue();
-    }
-}
-return data;
-    }
+    
+   
     public static void Capture()throws IOException{
         File dir=new File("/home/coder/project/workspace/adactin/screenshots/hotel.png");
         if(!dir.exists()){
