@@ -28,7 +28,7 @@ public static By pass=By.id("password");
 public static By login=By.id("login");
     @BeforeMethod
     public void setup()throws IOException{
-      
+     
         ChromeOptions op=new ChromeOptions();
         op.addArguments("--disable-notifications");
         driver=new RemoteWebDriver(new URL("http://localhost:4444"), op);
@@ -36,12 +36,14 @@ public static By login=By.id("login");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
 
-        driver.get(url);
+        driver.get(readProp("Url"));
 
     }
     @Test
     public void testHotel()throws InterruptedException{
+        String xlpath=readProp("excelPath");
       TestHybrid th=new TestHybrid();
+      setExcelFile(xlpath, "Sheet1");
       th.typefield(uname, "Tonymontana");
       th.typefield(pass,"jarvis123");
       th.clickElement(login);
@@ -62,10 +64,7 @@ public static By login=By.id("login");
        FileInputStream fis=new FileInputStream(excelpath);
        wb=new XSSFWorkbook(fis);
        sheet=wb.getSheet(SheetName);
-       XSSFRow row=sheet.getRow(0);
-       XSSFCell cell=row.getCell(0);
-
-    }
+      }
     public static String readProp(String propToRead){
         String  filePath=System.getProperty("user.dir");
         FileInputStream file=new FileInputStream(filePath+"/config/config.properties");
@@ -73,5 +72,9 @@ public static By login=By.id("login");
         props.load(file);
         String property=props.getProperty(propToRead);
         return property;
+    }
+    public static String[][] readExcelData(){
+int rows=sheet.getLastRowNum()-sheet.getFirstRowNum();
+int cells
     }
 }
