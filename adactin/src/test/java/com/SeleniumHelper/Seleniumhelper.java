@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Seleniumhelper {
 public static WebDriver driver;
+
     public Seleniumhelper(WebDriver driver){
         this.driver=driver;
     }

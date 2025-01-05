@@ -67,28 +67,17 @@ extent.attachReporter(spark);
     @Test(dataProvider ="readData" ) 
     public void testHotel(String user,String pass)throws Exception{
         
-      TestHybrid th=new TestHybrid();
-     
-     
-      th.typefield(uname, user);
-      th.typefield(passwrd,pass);
-      th.clickElement(login);
+      Seleniumhelper sh=new Seleniumhelper(driver);
+      sh.typefield(uname, user);
+      sh.typefield(passwrd,pass);
+      sh.clickElement(login);
 }
     @AfterTest
     public void tearDown(){
         driver.quit();
     }
 
+
     
    
-    public static void Capture()throws IOException{
-        File dir=new File("/home/coder/project/workspace/adactin/screenshots/hotel.png");
-        if(!dir.exists()){
-            dir.mkdir();
-        }
-        TakesScreenshot ts=(TakesScreenshot)driver;
-        File src=ts.getScreenshotAs(OutputType.FILE);
-        
-        FileHandler.copy(src,dir);
-    }
 }
