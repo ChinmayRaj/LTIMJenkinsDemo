@@ -27,7 +27,7 @@ public class TestHybrid {
   
     public static WebDriver driver;
 public static By uname=By.id("username");
-public static By pass=By.id("password");
+public static By passwrd=By.id("password");
 public static By login=By.id("login");
     @BeforeMethod
     public void setup()throws IOException{
@@ -42,19 +42,21 @@ public static By login=By.id("login");
         driver.get(readProp("Url"));
 
     }
-    @DataProvider(name="readData)
-    public Object[][] readData(){
-        setExcelFile(xlpath, "Sheet1");
-        Object[][] testData=
+    @DataProvider(name="readData")
+    public Object[][] readData()throws IOException{
+        String excelpath=readProp("excelPath");
+        setExcelFile(excelpath, "Sheet1");
+        Object[][] testdata=readExcelData();
+        return testdata;
     }
     @Test(dataProvider ="readData" )
-    public void testHotel()throws InterruptedException{
-        String xlpath=readProp("excelPath");
+    public void testHotel(String user,String pass){
+        
       TestHybrid th=new TestHybrid();
-      setExcelFile(xlpath, "Sheet1");
-      String[][] data=readExcelData();
-      th.typefield(uname, "Tonymontana");
-      th.typefield(pass,"jarvis123");
+     
+     
+      th.typefield(uname, user);
+      th.typefield(passwrd,pass);
       th.clickElement(login);
 
 
@@ -76,7 +78,7 @@ public static By login=By.id("login");
        wb=new XSSFWorkbook(fis);
        sheet=wb.getSheet(SheetName);
       }
-    public static String readProp(String propToRead){
+    public static String readProp(String propToRead)throws IOException{
         String  filePath=System.getProperty("user.dir");
         FileInputStream file=new FileInputStream(filePath+"/config/config.properties");
         Properties props=new Properties();
@@ -85,13 +87,13 @@ public static By login=By.id("login");
         return property;
     }
     public static String[][] readExcelData(){
-        String data=[][];
+        String[][] data=null;
 int rows=sheet.getLastRowNum()-sheet.getFirstRowNum();
 int cells=sheet.getRow(0).getLastCellNum();
 for(int i=0;i<rows;i++){
     for(int j=0;j<cells;j++)
     {
-       data[i][j]=sheet.getRow(i).getCell(j).
+       data[i][j]=sheet.getRow(i).getCell(j).getStringCellValue();
     }
 }
 return data;
