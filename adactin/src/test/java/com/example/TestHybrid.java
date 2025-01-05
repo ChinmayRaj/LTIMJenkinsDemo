@@ -32,7 +32,7 @@ public class TestHybrid {
     public static By passwrd=By.id("password");
     public static By login=By.id("login");
     @BeforeMethod
-    public void setup()throws IOException{
+    public void setup()throws MalformedURLException{
      
         ChromeOptions op=new ChromeOptions();
         op.addArguments("--disable-notifications");
@@ -51,8 +51,8 @@ public class TestHybrid {
         Object[][] testdata=readExcelData();
         return testdata;
     }
-    @Test(dataProvider ="readData" )
-    public void testHotel(String user,String pass){
+    @Test(dataProvider ="readData" ) 
+    public void testHotel(String user,String pass)throws Exception{
         
       TestHybrid th=new TestHybrid();
      
@@ -76,7 +76,8 @@ public class TestHybrid {
         driver.findElement(loc).click();
     }
     public static void setExcelFile(String excelpath,String SheetName)throws IOException{
-       FileInputStream fis=new FileInputStream(excelpath);
+        File file = new File(excelpath);
+       FileInputStream fis=new FileInputStream(file);
        wb=new XSSFWorkbook(fis);
        sheet=wb.getSheet(SheetName);
       }
