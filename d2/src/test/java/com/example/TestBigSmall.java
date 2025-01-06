@@ -1,3 +1,5 @@
+
+
 package com.example;
 
 
@@ -17,8 +19,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 
-public class AppTest1
-{
+public class TestBigSmall {
+
     public static WebDriver driver;
 
    @BeforeMethod
@@ -36,12 +38,14 @@ public class AppTest1
     {
         Actions act=new Actions(driver);
 
-     WebElement    christmas=driver.findElement(By.xpath("//ul/li[2]/details[@id='site-nav-item--2']"));
+     WebElement  christmas=driver.findElement(By.xpath("//ul/li[2]/details[@id='site-nav-item--2']"));
 act.moveToElement(christmas).build().perform();
 driver.findElement(By.partialLinkText("Secret")).click();
     }
-    @AfterMethod
+
+    @AfterTest
     public void close(){
         driver.quit();
     }
 }
+
