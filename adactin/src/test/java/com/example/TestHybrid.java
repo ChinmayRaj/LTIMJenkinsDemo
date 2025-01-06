@@ -79,8 +79,4 @@ extent.attachReporter(spark);
         driver.quit();
         }
     }
-
-
-    
-   
 }
