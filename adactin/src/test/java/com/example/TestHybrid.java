@@ -22,7 +22,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.SeleniumHelper.Seleniumhelper;
 import com.UIStore.LocatorUtils;
+import com.Utils.ExcelUtility;
+import com.Utils.PropUtility;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
@@ -49,17 +52,17 @@ public static Properties prop;
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         
-        driver.get(readProp("Url"));
+        driver.get(PropUtility.readProp("Url"));
         String reportPath="./reports/SparkReport.html";
-spark=new ExtentSparkReporter(reportPath);
-extent=new ExtentReports();
+ExtentSparkReporter spark=new ExtentSparkReporter(reportPath);
+ExtentReports extent=new ExtentReports();
 extent.attachReporter(spark);
      }
     @DataProvider(name="readData")
     public Object[][] readData()throws IOException{
-        String excelpath=readProp("excelPath");
-        setExcelFile(excelpath, "Sheet1");
-        Object[][] testdata=readExcelData();
+        String excelpath=PropUtility.readProp("excelPath");
+        ExcelUtility.setExcelFile(excelpath, "Sheet1");
+        Object[][] testdata=ExcelUtility.readExcelData();
         return testdata;
     }
     @Test(dataProvider ="readData" ) 
@@ -72,7 +75,9 @@ extent.attachReporter(spark);
 }
     @AfterTest
     public void tearDown(){
+        if(driver!=null){
         driver.quit();
+        }
     }
 
 
