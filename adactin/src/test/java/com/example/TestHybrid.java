@@ -26,6 +26,7 @@ import com.SeleniumHelper.Seleniumhelper;
 import com.UIStore.LocatorUtils;
 import com.Utils.ExcelUtility;
 import com.Utils.PropUtility;
+import com.Utils.Screenshot;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
@@ -72,9 +73,11 @@ extent.attachReporter(spark);
       sh.typefield(LocatorUtils.uname, user);
       sh.typefield(LocatorUtils.passwrd,pass);
       sh.clickElement(LocatorUtils.login);
+      Screenshot.Capture(driver);
 }
     @AfterTest
-    public void tearDown(){
+    public void tearDown()
+    {
         if(driver!=null){
         driver.quit();
         }
