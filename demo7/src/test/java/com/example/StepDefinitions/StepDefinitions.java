@@ -1,18 +1,22 @@
 package com.example.StepDefinitions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.time.Duration;
+import java.net.URL;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.messages.types.Duration;
+import java.net.MalformedURLException;
 
 public class StepDefinitions {
     WebDriver driver;
 
     @Given("User is on HotelAppLogin Page")
-public void user_is_on_hotel_app_login_page() {
+public void user_is_on_hotel_app_login_page()throws MalformedURLException
+ {
     driver=new RemoteWebDriver(new URL("http://localhost:4444"),new ChromeOptions());
     driver.manage().window().maximize();
     driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
@@ -32,7 +36,7 @@ public void user_clicks_on_login_button() {
 }
 @Then("User is Successfully Logged In")
 public void user_is_successfully_logged_in() {
-    String text=driver.findElement(By.xpath("//input[@id="username_show"]")).getDomAttribute("value");
+    String text=driver.findElement(By.xpath("//input[@id='username_show']")).getDomAttribute("value");
     driver.quit();
 }
 }
