@@ -1,3 +1,0 @@
-Feature: HotelAppLogin
-
-Scenario: Successfull 

@@ -1,4 +1,4 @@
-package com.example1;
+package com.example;
 
 /**
  * Hello world!
